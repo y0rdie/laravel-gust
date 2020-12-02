@@ -1,7 +1,17 @@
 {
     "name": "sambindoff/laravel-gust",
     "description": "Laravel Gust is a backend agnostic VueJS authentication frontend for Laravel.",
-    "keywords": ["laravel-gust", "laravel", "sanctum", "fortify", "breeze", "ui", "vue", "tailwind", "auth"],
+    "keywords": [
+        "laravel-gust",
+        "laravel",
+        "sanctum",
+        "fortify",
+        "breeze",
+        "ui",
+        "vue",
+        "tailwind",
+        "auth"
+    ],
     "homepage": "https://github.com/sambindoff/laravel-gust",
     "license": "MIT",
     "authors": [

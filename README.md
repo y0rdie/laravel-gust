@@ -8,14 +8,12 @@
 
 Laravel Gust is a backend agnostic VueJS authentication frontend for Laravel. Gust can power the registration and authentication features of your Laravel backend when using Laravel Fortify, Breeze or UI.
 
-Gust is powered by Laravel, Sanctum, VueJS and Tailwind CSS, and can be configured to authenticate using Fortify, Breeze or UI scaffolding.
-
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require sambindoff/laravel-gust
+composer require sambindoff/laravel-gust --dev
 ```
 
 ## Usage
