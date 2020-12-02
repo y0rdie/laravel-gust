@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SamBindoff\\LaravelGust\\": "src",
+            "SamBindoff\\LaravelGust\\": "src"
         }
     },
     "autoload-dev": {
