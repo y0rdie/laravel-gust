@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace SamBindoff\LaravelGust\Tests;
 
 class ExampleTest extends TestCase
 {
