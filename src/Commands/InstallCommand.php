@@ -78,7 +78,6 @@ class InstallCommand extends Command
         copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/ConfirmablePasswordController.php', app_path('Http/Controllers/Auth/ConfirmablePasswordController.php'));
         (new Filesystem)->deleteDirectory(app_path('View'));
         (new Filesystem)->deleteDirectory(resource_path('views'));
-        (new Filesystem)->delete(resource_path('js/bootstrap.js'));
         $this->replaceInFile('Auth::logout', "Auth::guard('web')->logout", app_path('Http/Controllers/Auth/AuthenticatedSessionController.php'));
         $this->replaceInFile('use App\Http\Controllers\Controller;', 'use App\Http\Controllers\Controller;'.PHP_EOL.'use App\Providers\RouteServiceProvider;', app_path('Http/Controllers/Auth/NewPasswordController.php'));
         $this->replaceInFile("redirect()->route('login')", 'redirect(RouteServiceProvider::HOME)', app_path('Http/Controllers/Auth/NewPasswordController.php'));
@@ -156,7 +155,6 @@ class InstallCommand extends Command
         (new Filesystem)->ensureDirectoryExists(resource_path('js/services'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/stores'));
         (new Filesystem)->ensureDirectoryExists(resource_path('views'));
-        (new Filesystem)->deleteDirectory(resource_path('sass'));
 
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
@@ -196,6 +194,8 @@ class InstallCommand extends Command
 
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Providers/AppServiceProvider.php', app_path('Providers/AppServiceProvider.php'));
+        (new Filesystem)->deleteDirectory(resource_path('sass'));
+        (new Filesystem)->delete(resource_path('js/bootstrap.js'));
         $this->replaceInFile("route('login')", "url('login')", app_path('Http/Middleware/Authenticate.php'));
 
         $this->info('Gust scaffolding installed successfully.');
