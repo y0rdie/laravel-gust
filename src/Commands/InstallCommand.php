@@ -57,7 +57,6 @@ class InstallCommand extends Command
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserPassword.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserProfileInformation.php'));
 
-        $this->line('');
         $this->info('Fortify scaffolding installed successfully.');
     }
 
@@ -83,7 +82,6 @@ class InstallCommand extends Command
         $this->replaceInFile("redirect()->route('login')", 'redirect(RouteServiceProvider::HOME)', app_path('Http/Controllers/Auth/NewPasswordController.php'));
         $this->replaceInFile('"dont-discover": []', '"dont-discover": ["laravel/fortify"]', base_path('composer.json'));
 
-        $this->line('');
         $this->info('Breeze scaffolding installed successfully.');
     }
 
@@ -105,7 +103,6 @@ class InstallCommand extends Command
         (new Filesystem)->delete(app_path('Http/Controllers/HomeController.php'));
         $this->replaceInFile('"dont-discover": []', '"dont-discover": ["laravel/fortify"]', base_path('composer.json'));
 
-        $this->line('');
         $this->info('UI scaffolding installed successfully.');
     }
 
