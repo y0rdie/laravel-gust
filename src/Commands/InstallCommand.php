@@ -56,6 +56,7 @@ class InstallCommand extends Command
         copy(__DIR__.'/../../stubs/app/Providers/FortifyServiceProvider.php', app_path('Providers/FortifyServiceProvider.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserPassword.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserProfileInformation.php'));
+        (new Filesystem)->deleteDirectory(resource_path('views'));
 
         $this->info('Fortify scaffolding installed successfully.');
     }
@@ -101,6 +102,7 @@ class InstallCommand extends Command
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/LoginController.php', app_path('Http/Controllers/Auth/LoginController.php'));
         (new Filesystem)->delete(app_path('Http/Controllers/HomeController.php'));
+        (new Filesystem)->deleteDirectory(resource_path('views'));
         $this->replaceInFile('"dont-discover": []', '"dont-discover": ["laravel/fortify"]', base_path('composer.json'));
 
         $this->info('UI scaffolding installed successfully.');
