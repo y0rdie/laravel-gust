@@ -42,6 +42,7 @@ php artisan gust:install ui
 ### Finalising the Installation
 
 ``` bash
+php artisan migrate
 npm install && npm run dev
 ```
 
