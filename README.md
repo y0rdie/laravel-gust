@@ -1,8 +1,9 @@
 # Laravel Gust*
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/sambindoff/laravel-gust.svg?style=flat-square)](https://packagist.org/packages/sambindoff/laravel-gust)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sambindoff/laravel-gust/Tests?label=tests)](https://github.com/sambindoff/laravel-gust/actions?query=workflow%3ATests+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/sambindoff/laravel-gust.svg?style=flat-square)](https://packagist.org/packages/sambindoff/laravel-gust)
+[![Total Downloads](https://img.shields.io/packagist/dt/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
+[![License](https://img.shields.io/packagist/l/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
 
 ## Introduction
 
@@ -18,8 +19,30 @@ composer require sambindoff/laravel-gust --dev
 
 ## Usage
 
-``` php
-tbc
+Gust offers a choice of three backend stacks: Fortify, Breeze or UI (for you dinosaurs among us).
+
+### Install Gust with Fortify
+
+``` bash
+php artisan gust:install fortify
+```
+
+### Install Gust with Breeze
+
+``` bash
+php artisan gust:install breeze
+```
+
+### Install Gust with UI
+
+``` bash
+php artisan gust:install ui
+```
+
+### Finalising the Installation
+
+``` bash
+npm install && npm run dev
 ```
 
 ## Testing
@@ -42,7 +65,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Sam Bindoff](https://github.com/sambindoff)
 - [Loris Leiva - Unlock your frontend skills](https://lorisleiva.com/unlock-your-frontend-skills/)
 - [Markus Oberlehner - Implementing a Simple Middleware with Vue Router](https://markus.oberlehner.net/blog/implementing-a-simple-middleware-with-vue-router/)
 - [All Contributors](../../contributors)
