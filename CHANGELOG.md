@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## 0.2.0 - 2020-12-03
+## 0.1.2 - 2020-12-04
+
+### Fixed
+
+- UI must be installed in the project
+
+## 0.1.1 - 2020-12-03
 
 ### Added
 
