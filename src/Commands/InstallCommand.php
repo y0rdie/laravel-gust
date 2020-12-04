@@ -43,10 +43,10 @@ class InstallCommand extends Command
 
         // Publish Fortify...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Fortify\FortifyServiceProvider', '--force'], base_path()))
-                ->setTimeout(null)
-                ->run(function ($type, $output) {
-                    $this->output->write($output);
-                });
+            ->setTimeout(null)
+            ->run(function ($type, $output) {
+                $this->output->write($output);
+            });
 
         // Fortify Service Provider...
         $this->replaceInFile('App\\Providers\RouteServiceProvider::class,', 'App\\Providers\RouteServiceProvider::class,'.PHP_EOL.'        App\Providers\FortifyServiceProvider::class,', config_path('app.php'));
@@ -69,7 +69,11 @@ class InstallCommand extends Command
     protected function installBreezeStack()
     {
         // Install Breeze...
-        $this->callSilent('breeze:install');
+        (new Process(['php', 'artisan', 'breeze:install'], base_path()))
+            ->setTimeout(null)
+            ->run(function ($type, $output) {
+                $this->output->write($output);
+            });
 
         // Routes...
         copy(__DIR__.'/../../stubs/routes/auth-breeze.php', base_path('routes/auth.php'));
@@ -81,7 +85,6 @@ class InstallCommand extends Command
         $this->replaceInFile('Auth::logout', "Auth::guard('web')->logout", app_path('Http/Controllers/Auth/AuthenticatedSessionController.php'));
         $this->replaceInFile('use App\Http\Controllers\Controller;', 'use App\Http\Controllers\Controller;'.PHP_EOL.'use App\Providers\RouteServiceProvider;', app_path('Http/Controllers/Auth/NewPasswordController.php'));
         $this->replaceInFile("redirect()->route('login')", 'redirect(RouteServiceProvider::HOME)', app_path('Http/Controllers/Auth/NewPasswordController.php'));
-        $this->replaceInFile('"dont-discover": []', '"dont-discover": ["laravel/fortify"]', base_path('composer.json'));
 
         $this->info('Breeze scaffolding installed successfully.');
     }
@@ -93,8 +96,15 @@ class InstallCommand extends Command
      */
     protected function installUIStack()
     {
-        // Install UI
-        $this->callSilent('ui:auth');
+        // Install UI...
+        $this->requireComposerPackages('laravel/ui:^3.1');
+
+        // Publish UI...
+        (new Process(['php', 'artisan', 'ui:auth'], base_path()))
+            ->setTimeout(null)
+            ->run(function ($type, $output) {
+                $this->output->write($output);
+            });
 
         // Routes...
         copy(__DIR__.'/../../stubs/routes/auth-ui.php', base_path('routes/auth.php'));
@@ -103,7 +113,6 @@ class InstallCommand extends Command
         copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/LoginController.php', app_path('Http/Controllers/Auth/LoginController.php'));
         (new Filesystem)->delete(app_path('Http/Controllers/HomeController.php'));
         (new Filesystem)->deleteDirectory(resource_path('views'));
-        $this->replaceInFile('"dont-discover": []', '"dont-discover": ["laravel/fortify"]', base_path('composer.json'));
 
         $this->info('UI scaffolding installed successfully.');
     }
@@ -120,10 +129,10 @@ class InstallCommand extends Command
 
         // Publish Sanctum...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Sanctum\SanctumServiceProvider', '--force'], base_path()))
-                ->setTimeout(null)
-                ->run(function ($type, $output) {
-                    $this->output->write($output);
-                });
+            ->setTimeout(null)
+            ->run(function ($type, $output) {
+                $this->output->write($output);
+            });
 
         // Sanctum Environment Variable...
         file_put_contents(base_path('.env'), file_get_contents(base_path('.env')).PHP_EOL.'SANCTUM_STATEFUL_DOMAINS='.parse_url(config('app.url'))['host'].PHP_EOL);

@@ -25,9 +25,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "illuminate/contracts": "^8.0",
-        "laravel/breeze": "^0.1.0",
-        "laravel/fortify": "^1.7",
-        "laravel/ui": "^3.1"
+        "laravel/breeze": "^0.1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
