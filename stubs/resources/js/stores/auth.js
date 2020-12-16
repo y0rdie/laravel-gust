@@ -42,7 +42,7 @@ export const auth = new Vuex.Store({
             state.authenticated = value;
         },
         SET_USER (state, user) {
-            state.user = user !== '' ? user : null;
+            state.user = user;
         },
         SET_CONFIRMED (state) {
             state.user.password_confirmed_at = Math.round(Date.now() / 1000);

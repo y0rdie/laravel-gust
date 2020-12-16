@@ -56,7 +56,6 @@ class InstallCommand extends Command
         copy(__DIR__.'/../../stubs/app/Providers/FortifyServiceProvider.php', app_path('Providers/FortifyServiceProvider.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserPassword.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserProfileInformation.php'));
-        (new Filesystem)->deleteDirectory(resource_path('views'));
 
         $this->info('Fortify scaffolding installed successfully.');
     }
@@ -81,7 +80,6 @@ class InstallCommand extends Command
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/ConfirmablePasswordController.php', app_path('Http/Controllers/Auth/ConfirmablePasswordController.php'));
         (new Filesystem)->deleteDirectory(app_path('View'));
-        (new Filesystem)->deleteDirectory(resource_path('views'));
         $this->replaceInFile('Auth::logout', "Auth::guard('web')->logout", app_path('Http/Controllers/Auth/AuthenticatedSessionController.php'));
         $this->replaceInFile('use App\Http\Controllers\Controller;', 'use App\Http\Controllers\Controller;'.PHP_EOL.'use App\Providers\RouteServiceProvider;', app_path('Http/Controllers/Auth/NewPasswordController.php'));
         $this->replaceInFile("redirect()->route('login')", 'redirect(RouteServiceProvider::HOME)', app_path('Http/Controllers/Auth/NewPasswordController.php'));
@@ -100,7 +98,7 @@ class InstallCommand extends Command
         $this->requireComposerPackages('laravel/ui:^3.1');
 
         // Publish UI...
-        (new Process(['php', 'artisan', 'ui:auth'], base_path()))
+        (new Process(['php', 'artisan', 'ui:controllers'], base_path()))
             ->setTimeout(null)
             ->run(function ($type, $output) {
                 $this->output->write($output);
@@ -112,7 +110,6 @@ class InstallCommand extends Command
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/LoginController.php', app_path('Http/Controllers/Auth/LoginController.php'));
         (new Filesystem)->delete(app_path('Http/Controllers/HomeController.php'));
-        (new Filesystem)->deleteDirectory(resource_path('views'));
 
         $this->info('UI scaffolding installed successfully.');
     }
@@ -152,6 +149,7 @@ class InstallCommand extends Command
         }
 
         // Directories...
+        (new Filesystem)->deleteDirectory(resource_path('views'));
         (new Filesystem)->ensureDirectoryExists(resource_path('css'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/components'));

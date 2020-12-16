@@ -10,6 +10,7 @@
         "ui",
         "vue",
         "tailwind",
+        "authentication",
         "auth"
     ],
     "homepage": "https://github.com/sambindoff/laravel-gust",
