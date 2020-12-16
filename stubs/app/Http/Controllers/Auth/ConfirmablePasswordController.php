@@ -35,7 +35,7 @@ class ConfirmablePasswordController extends Controller
         ])) {
             if ($request->wantsJson()) {
                 throw ValidationException::withMessages([
-                    'password' => [__('The provided password was incorrect.')],
+                    'password' => [__('auth.password')],
                 ]);
             }
 

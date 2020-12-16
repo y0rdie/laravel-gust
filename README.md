@@ -107,7 +107,7 @@ You can find out more about Laravel Fortify in the [official repository](https:/
 
 #### What the Breeze stack does
 - Run the Breeze `vendor:publish` command.
-- Copy the `routes/auth-breeze.php` stubs to `routes/auth.php`.
+- Copy the `routes/auth-breeze.php` stubs to `routes/auth.php` and require it in `routes/web.php`.
 - Copy the `app/Http/Controllers/Auth/ConfirmablePasswordController.php` stub. This explicitally uses the auth web guard for validating the user and throws a ValidationException if invalid which our SPA can interpret.
 - Replace `Auth::logout` with `Auth::guard('web')->logout` in `app/Http/Controllers/Auth/AuthenticatedSessionController.php` to be explicit about the auth guard.
 - Add the `use App\Providers\RouteServiceProvider;` import to `app/Http/Controllers/Auth/NewPasswordController.php` so it can be used as the redirect.
@@ -119,7 +119,7 @@ You can find out more about Laravel Breeze in the [official repository](https://
 #### What the UI stack does
 - Composer require the `laravel/ui` package.
 - Run the `ui:controllers` command.
-- Copy the `routes/auth-ui.php` stubs to `routes/auth.php`.
+- Copy the `routes/auth-ui.php` stubs to `routes/auth.php` and require it in `routes/web.php`.
 - Copy the `app/Http/Controllers/Auth/LoginController.php` stub. This overrides the `logout` method explicitally uses the auth web guard.
 - Delete the `app/Http/Controllers/HomeController.php` file.
 

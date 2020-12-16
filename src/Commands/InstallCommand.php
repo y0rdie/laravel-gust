@@ -81,8 +81,6 @@ class InstallCommand extends Command
         copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/ConfirmablePasswordController.php', app_path('Http/Controllers/Auth/ConfirmablePasswordController.php'));
         (new Filesystem)->deleteDirectory(app_path('View'));
         $this->replaceInFile('Auth::logout', "Auth::guard('web')->logout", app_path('Http/Controllers/Auth/AuthenticatedSessionController.php'));
-        $this->replaceInFile('use App\Http\Controllers\Controller;', 'use App\Http\Controllers\Controller;'.PHP_EOL.'use App\Providers\RouteServiceProvider;', app_path('Http/Controllers/Auth/NewPasswordController.php'));
-        $this->replaceInFile("redirect()->route('login')", 'redirect(RouteServiceProvider::HOME)', app_path('Http/Controllers/Auth/NewPasswordController.php'));
 
         $this->info('Breeze scaffolding installed successfully.');
     }
@@ -144,6 +142,7 @@ class InstallCommand extends Command
         // Routes...
         copy(__DIR__.'/../../stubs/routes/api.php', base_path('routes/api.php'));
         copy(__DIR__.'/../../stubs/routes/web.php', base_path('routes/web.php'));
+
         if (in_array($this->argument('stack'), ['breeze', 'ui'])) {
             $this->replaceInFile('*/', '*/'.PHP_EOL.PHP_EOL."require __DIR__.'/auth.php';", base_path('routes/web.php'));
         }
@@ -202,7 +201,6 @@ class InstallCommand extends Command
 
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Providers/AppServiceProvider.php', app_path('Providers/AppServiceProvider.php'));
-        $this->replaceInFile("route('login')", "url('login')", app_path('Http/Middleware/Authenticate.php'));
 
         $this->info('Gust scaffolding installed successfully.');
         $this->comment('Please execute the "npm install && npm run dev" command to build your assets.');

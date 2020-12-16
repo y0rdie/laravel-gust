@@ -8,8 +8,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register', [RegisterController::class, 'register'])->middleware(['guest']);
-Route::post('/login', [LoginController::class, 'login'])->middleware(['guest']);
+Route::post('/register', [RegisterController::class, 'register'])->middleware(['guest'])->name('register');
+Route::post('/login', [LoginController::class, 'login'])->middleware(['guest'])->name('login');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->middleware(['guest'])->name('password.email');
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->middleware(['guest'])->name('password.update');
 Route::get('/verify-email/{id}/{hash}', [VerificationController::class, 'verify'])->middleware(['auth:sanctum', 'signed', 'throttle:6,1'])->name('verification.verify');
