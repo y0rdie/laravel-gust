@@ -92,7 +92,6 @@ In order for any SPA to be compatible with Laravel, here is an exhaustive list o
 - Publish all the SPA stubs.
 - Update `package.json` to require Vue.js, Vue Router, Vuex and Tailwind CSS.
 - Override the reset password route in `app/Providers/AppServiceProvider.php` with a URL as this GET route definition no longer exists in a SPA.
-- Replace the login route in `app/Http/Middleware/Authenticate.php` with a URL as this GET route definition no longer exists in a SPA.
 
 #### What the Fortify stack does
 - Composer require the `laravel/fortify` package.
@@ -110,8 +109,6 @@ You can find out more about Laravel Fortify in the [official repository](https:/
 - Copy the `routes/auth-breeze.php` stubs to `routes/auth.php` and require it in `routes/web.php`.
 - Copy the `app/Http/Controllers/Auth/ConfirmablePasswordController.php` stub. This explicitally uses the auth web guard for validating the user and throws a ValidationException if invalid which our SPA can interpret.
 - Replace `Auth::logout` with `Auth::guard('web')->logout` in `app/Http/Controllers/Auth/AuthenticatedSessionController.php` to be explicit about the auth guard.
-- Add the `use App\Providers\RouteServiceProvider;` import to `app/Http/Controllers/Auth/NewPasswordController.php` so it can be used as the redirect.
-- Replace `redirect()->route('login')` with `redirect(RouteServiceProvider::HOME)` in `app/Http/Controllers/Auth/NewPasswordController.php`.
 - Delete the `app/Views` directory.
 
 You can find out more about Laravel Breeze in the [official repository](https://github.com/laravel/breeze).
@@ -120,7 +117,7 @@ You can find out more about Laravel Breeze in the [official repository](https://
 - Composer require the `laravel/ui` package.
 - Run the `ui:controllers` command.
 - Copy the `routes/auth-ui.php` stubs to `routes/auth.php` and require it in `routes/web.php`.
-- Copy the `app/Http/Controllers/Auth/LoginController.php` stub. This overrides the `logout` method explicitally uses the auth web guard.
+- Copy the `app/Http/Controllers/Auth/LoginController.php` stub. This overrides the `logout` method to explicitally use the auth web guard.
 - Delete the `app/Http/Controllers/HomeController.php` file.
 
 You can find out more about Laravel UI in the [official repository](https://github.com/laravel/ui).
