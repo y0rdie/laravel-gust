@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
+## 0.2.0 - 2020-12-16
+
+### Changed
+
+- Delete views directory for all stacks once in the install SPA stack method ([4f6486b](https://github.com/sambindoff/laravel-gust/commit/4f6486b318f8be67e95f0e4cab767ce7eee7871f))
+- Run the `ui:controllers` command instead of `ui:auth` as we only need the backend ([4f6486b](https://github.com/sambindoff/laravel-gust/commit/4f6486b318f8be67e95f0e4cab767ce7eee7871f))
+- Lots more info added to README.md
+
 ## 0.1.2 - 2020-12-04
 
 ### Fixed
