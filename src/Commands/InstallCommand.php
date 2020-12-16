@@ -149,6 +149,8 @@ class InstallCommand extends Command
         }
 
         // Directories...
+        (new Filesystem)->delete(resource_path('js/bootstrap.js'));
+        (new Filesystem)->deleteDirectory(resource_path('sass'));
         (new Filesystem)->deleteDirectory(resource_path('views'));
         (new Filesystem)->ensureDirectoryExists(resource_path('css'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js'));
@@ -161,22 +163,6 @@ class InstallCommand extends Command
         (new Filesystem)->ensureDirectoryExists(resource_path('js/services'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/stores'));
         (new Filesystem)->ensureDirectoryExists(resource_path('views'));
-
-        // NPM Packages...
-        $this->updateNodePackages(function ($packages) {
-            return [
-                '@tailwindcss/forms' => '^0.2.1',
-                'tailwindcss' => 'npm:@tailwindcss/postcss7-compat@^2.0.1',
-                'vue' => '^2.6.12',
-                'vue-router' => '^3.4.9',
-                'vue-template-compiler' => '^2.6.12',
-                'vuex' => '^3.6.0',
-            ] + Arr::except($packages, [
-                'alpinejs',
-                'autoprefixer',
-                'postcss-import',
-            ]);
-        });
 
         // Tailwind Configuration...
         copy(__DIR__.'/../../stubs/tailwind.config.js', base_path('tailwind.config.js'));
@@ -198,10 +184,24 @@ class InstallCommand extends Command
         // Blade View...
         copy(__DIR__.'/../../stubs/resources/views/app.blade.php', resource_path('views/app.blade.php'));
 
+        // NPM Packages...
+        $this->updateNodePackages(function ($packages) {
+            return [
+                '@tailwindcss/forms' => '^0.2.1',
+                'tailwindcss' => 'npm:@tailwindcss/postcss7-compat@^2.0.1',
+                'vue' => '^2.6.12',
+                'vue-router' => '^3.4.9',
+                'vue-template-compiler' => '^2.6.12',
+                'vuex' => '^3.6.0',
+            ] + Arr::except($packages, [
+                'alpinejs',
+                'autoprefixer',
+                'postcss-import',
+            ]);
+        });
+
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Providers/AppServiceProvider.php', app_path('Providers/AppServiceProvider.php'));
-        (new Filesystem)->deleteDirectory(resource_path('sass'));
-        (new Filesystem)->delete(resource_path('js/bootstrap.js'));
         $this->replaceInFile("route('login')", "url('login')", app_path('Http/Middleware/Authenticate.php'));
 
         $this->info('Gust scaffolding installed successfully.');
