@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.x...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.0...main)
 
 ## v0.2.0 - 2020-12-16
 
