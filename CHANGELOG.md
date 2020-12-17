@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.0...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.1...main)
+
+## v0.2.1 - 2020-12-17
+
+### Changed
+
+- Replace fortify stubs with replace in file calls ([f045464](https://github.com/sambindoff/laravel-gust/commit/f04546495e96ba71ad9f5d3de4311441d6832663))
 
 ## v0.2.0 - 2020-12-16
 
