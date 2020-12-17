@@ -25,7 +25,7 @@
 
 Laravel Gust is a backend agnostic Vue.js authentication frontend for Laravel. Gust can power the registration and authentication features of your Laravel backend when using Laravel Fortify, Breeze or UI.
 
-Gust is powered by Vue.js v2, Vue Router, Vuex and Tailwind CSS v2 on the frontend and provides scaffolding to get your started with a basic Vue.js SPA that is compatible with all Laravel backend authentication packages.
+Gust is powered by Vue.js v2, Vue Router, Vuex and Tailwind CSS v2 on the frontend and provides scaffolding to get you started with a basic Vue.js SPA that is compatible with all Laravel backend authentication packages.
 
 Gust uses Laravel Sanctum on the backend to authenticate your SPA regardless of the stack you choose.
 
@@ -45,6 +45,8 @@ Gust offers a choice of three backend stacks: Fortify, Breeze or UI (for you din
 
 #### Install with Fortify
 
+The Fortify stack is a good choice if you don't need to customise the backend authentication logic this package provides as this is all handled by the package itself.
+
 ``` bash
 php artisan gust:install fortify
 ```
@@ -53,6 +55,8 @@ Read about the changes this makes to your application in the [What the Fortify s
 
 #### Install with Breeze
 
+The Breeze stack is a good choice if you want greater control over the backend authentication logic this package provides as this is all published into your application.
+
 ``` bash
 php artisan gust:install breeze
 ```
@@ -60,6 +64,8 @@ php artisan gust:install breeze
 Read about the changes this makes to your application in the [What the Breeze stack does](#what-the-breeze-stack-does) section below.
 
 #### Install with UI
+
+The UI stack is a good choice if you're already familiar with the backend authentication logic this package provides and not quite ready to make the switch to Breeze or Fortify.
 
 ``` bash
 php artisan gust:install ui
@@ -97,8 +103,8 @@ In order for any SPA to be compatible with Laravel, here is an exhaustive list o
 - Composer require the `laravel/fortify` package.
 - Run the Fortify `vendor:publish` command.
 - Add the `FortifyServiceProvider` to the providers key in `config/app.php`.
-- Copy the `config/fortify.php` stub which disables views and enables the registration, reset password and email verification features.
-- Copy the `app/Providers/FortifyServiceProvider.php` stub which registers the `CreateNewUser` and `ResetUserPassword` action classes.
+- Update `config/fortify.php` to set `'views' => false,` and only enable the registration, reset passwords, email verification features.
+- Update `app/Providers/FortifyServiceProvider.php` to only register the `CreateNewUser` and `ResetUserPassword` actions.
 - Delete the `app/Actions/Fortify/UpdateUserPassword.php` file.
 - Delete the `app/Actions/Fortify/UpdateUserProfileInformation.php` file.
 

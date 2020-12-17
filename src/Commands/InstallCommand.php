@@ -52,8 +52,13 @@ class InstallCommand extends Command
         $this->replaceInFile('App\\Providers\RouteServiceProvider::class,', 'App\\Providers\RouteServiceProvider::class,'.PHP_EOL.'        App\Providers\FortifyServiceProvider::class,', config_path('app.php'));
 
         // SPA Fixes...
-        copy(__DIR__.'/../../stubs/config/fortify.php', base_path('config/fortify.php'));
-        copy(__DIR__.'/../../stubs/app/Providers/FortifyServiceProvider.php', app_path('Providers/FortifyServiceProvider.php'));
+        $this->replaceInFile("'views' => true,", "'views' => false,", config_path('fortify.php'));
+        $this->replaceInFile('// Features::emailVerification(),', 'Features::emailVerification(),', config_path('fortify.php'));
+        $this->replaceInFile('        Features::updateProfileInformation(),', '        // Features::updateProfileInformation(),', config_path('fortify.php'));
+        $this->replaceInFile('        Features::updatePasswords(),', '        // Features::updatePasswords(),', config_path('fortify.php'));
+        $this->replaceInFile('        Features::twoFactorAuthentication(['.PHP_EOL."            'confirmPassword' => true,".PHP_EOL.'        ]),', '        // Features::twoFactorAuthentication(['.PHP_EOL."        //     'confirmPassword' => true,".PHP_EOL.'        // ]),', config_path('fortify.php'));
+        $this->replaceInFile('        Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);', '        // Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);', app_path('Providers/FortifyServiceProvider.php'));
+        $this->replaceInFile('        Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);', '        // Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);', app_path('Providers/FortifyServiceProvider.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserPassword.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserProfileInformation.php'));
 
@@ -79,8 +84,8 @@ class InstallCommand extends Command
 
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/ConfirmablePasswordController.php', app_path('Http/Controllers/Auth/ConfirmablePasswordController.php'));
-        (new Filesystem)->deleteDirectory(app_path('View'));
         $this->replaceInFile('Auth::logout', "Auth::guard('web')->logout", app_path('Http/Controllers/Auth/AuthenticatedSessionController.php'));
+        (new Filesystem)->deleteDirectory(app_path('View'));
 
         $this->info('Breeze scaffolding installed successfully.');
     }
