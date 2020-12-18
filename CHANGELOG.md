@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.2...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.3...main)
+
+## v0.2.3 - 2020-12-18
+
+### Changed
+
+- Move customising the reset password url to the AuthServiceProvider ([f45d3ef](https://github.com/sambindoff/laravel-gust/commit/f45d3ef7b064dd122d032d926ecb9138fc5b2529))
 
 ## v0.2.2 - 2020-12-18
 
