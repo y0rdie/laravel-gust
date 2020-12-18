@@ -4,6 +4,12 @@ All notable changes to `laravel-gust` will be documented in this file.
 
 ## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.1...main)
 
+## v0.2.2 - 2020-12-18
+
+### Fixed
+
+- Route reference still needs replacing for Fortify ([6754775](https://github.com/sambindoff/laravel-gust/commit/67547753a2f0ce43e7740289da1f99ad28452172))
+
 ## v0.2.1 - 2020-12-17
 
 ### Changed
