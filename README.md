@@ -97,7 +97,8 @@ In order for any SPA to be compatible with Laravel, here is an exhaustive list o
 - Delete the `resources/views` directory ready for the new stubs.
 - Publish all the SPA stubs.
 - Update `package.json` to require Vue.js, Vue Router, Vuex and Tailwind CSS.
-- Override the reset password route in `app/Providers/AppServiceProvider.php` with a URL as this GET route definition no longer exists in a SPA.
+- Customise the password reset link URL using the `ResetPassword::createUrlUsing` method in `app/Providers/AppServiceProvider.php` as recommended in the [documentation](https://laravel.com/docs/master/passwords#reset-link-customization), as this GET route definition no longer exists in a SPA.
+- Change `route('login')` with `url('login')` in `app/Http/Middleware/Authenticate.php` as this GET route definition no longer exists in a SPA.
 
 #### What the Fortify stack does
 - Composer require the `laravel/fortify` package.
