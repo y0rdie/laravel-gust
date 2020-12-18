@@ -206,6 +206,7 @@ class InstallCommand extends Command
 
         // SPA Fixes...
         copy(__DIR__.'/../../stubs/app/Providers/AppServiceProvider.php', app_path('Providers/AppServiceProvider.php'));
+        $this->replaceInFile("route('login')", "url('login')", app_path('Http/Middleware/Authenticate.php'));
 
         $this->info('Gust scaffolding installed successfully.');
         $this->comment('Please execute the "npm install && npm run dev" command to build your assets.');
