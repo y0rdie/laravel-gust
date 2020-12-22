@@ -83,8 +83,6 @@ class InstallCommand extends Command
         copy(__DIR__.'/../../stubs/routes/auth-breeze.php', base_path('routes/auth.php'));
 
         // SPA Fixes...
-        copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/ConfirmablePasswordController.php', app_path('Http/Controllers/Auth/ConfirmablePasswordController.php'));
-        $this->replaceInFile('Auth::logout', "Auth::guard('web')->logout", app_path('Http/Controllers/Auth/AuthenticatedSessionController.php'));
         (new Filesystem)->deleteDirectory(app_path('View'));
 
         $this->info('Breeze scaffolding installed successfully.');
