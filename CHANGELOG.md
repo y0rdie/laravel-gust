@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.2.3...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.3.0...main)
+
+## v0.3.0 - 2020-12-22
+
+### Changed
+
+- Breeze SPA compatibility updates [https://github.com/laravel/breeze/pull/29](https://github.com/laravel/breeze/pull/29) ([#3](https://github.com/sambindoff/laravel-gust/pull/3))
 
 ## v0.2.3 - 2020-12-18
 
