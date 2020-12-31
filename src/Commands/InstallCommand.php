@@ -190,7 +190,7 @@ class InstallCommand extends Command
         $this->updateNodePackages(function ($packages) {
             return [
                 '@tailwindcss/forms' => '^0.2.1',
-                'tailwindcss' => 'npm:@tailwindcss/postcss7-compat@^2.0.1',
+                'tailwindcss' => '^2.0.1',
                 'vue' => '^2.6.12',
                 'vue-router' => '^3.4.9',
                 'vue-template-compiler' => '^2.6.12',
