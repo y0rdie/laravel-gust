@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v0.3.0...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v1.0.0...main)
+
+## v1.0.0 - 2021-01-05
+
+### Changed
+
+- Upgrade to Mix v6 ([#5](https://github.com/sambindoff/laravel-gust/pull/5))
 
 ## v0.3.0 - 2020-12-22
 
