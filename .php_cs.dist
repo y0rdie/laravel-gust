@@ -2,5 +2,4 @@
 
 return SamBindoff\styles([
     __DIR__.'/src',
-    __DIR__.'/tests',
 ]);

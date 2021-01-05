@@ -1,7 +1,6 @@
 # Laravel Gust*
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sambindoff/laravel-gust/Tests?label=tests)](https://github.com/sambindoff/laravel-gust/actions?query=workflow%3ATests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
 [![License](https://img.shields.io/packagist/l/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
 

@@ -1,4 +1,4 @@
-window.Vue = require('vue');
+window.Vue = require('vue').default;
 window.Http = require('./services/Http').default;
 window.Form = require('./services/Form').default;
 
