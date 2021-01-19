@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
 [![Total Downloads](https://img.shields.io/packagist/dt/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
 [![License](https://img.shields.io/packagist/l/sambindoff/laravel-gust)](https://packagist.org/packages/sambindoff/laravel-gust)
+[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/sambindoff/laravel-gust)
 
 - [Introduction](#introduction)
     - [Installation](#installation)
@@ -147,5 +148,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/sambindoff/laravel-gust) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
 
 ***This package might have a catchy one word name just like many other first party Laravel packages, however, this is most definitely an unoffical package and in no way endorsed by the Laravel team. It's more of a tongue-in-cheek reference, but hopefully just as brilliant.**
