@@ -14,14 +14,14 @@
             <div>
                 <base-label for="name" value="Name" />
 
-                <base-input v-model="form.name" id="name" class="block mt-1 w-full" type="text" name="name" value="" required autofocus />
+                <base-input v-model="form.name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
                 <base-label for="email" value="Email" />
 
-                <base-input v-model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" value="" required />
+                <base-input v-model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" required />
             </div>
 
             <!-- Password -->

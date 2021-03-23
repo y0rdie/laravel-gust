@@ -21,7 +21,7 @@
             <div>
                 <base-label for="email" value="Email" />
 
-                <base-input v-model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" value="" required autofocus />
+                <base-input v-model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus />
             </div>
 
             <div class="flex items-center justify-end mt-4">
