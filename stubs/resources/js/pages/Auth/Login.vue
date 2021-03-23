@@ -39,7 +39,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <router-link v-if="$router.resolve({ name: 'password.request' }).route.matched.length > 0" :to="{ name: 'password.request' }" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <router-link v-if="$router.resolve({ name: 'password.request' }).matched.length > 0" :to="{ name: 'password.request' }" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Forgot your password?
                 </router-link>
 
