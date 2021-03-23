@@ -1,9 +1,12 @@
 import baseComponents from './base-components';
+import router from '@router';
 import stores from './stores';
 
-export default function (Vue) {
-    Vue.component('guest-layout', require('@layouts/Guest').default);
-    Vue.component('auth-layout', require('@layouts/Auth').default);
-    Vue.use(baseComponents);
-    Vue.use(stores);
+export default function (app) {
+    app
+        .component('guest-layout', require('@layouts/Guest').default)
+        .component('auth-layout', require('@layouts/Auth').default)
+        .use(baseComponents)
+        .use(router)
+        .use(stores);
 }
