@@ -2,8 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import routes from './routes'
 import { auth } from '@stores';
 
-Vue.use(VueRouter);
-
 const router = createRouter({
     history: createWebHistory(),
     routes,
