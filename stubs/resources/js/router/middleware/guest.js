@@ -1,8 +1,8 @@
 import { auth } from '@stores';
 
-export default function guest({ next, to }) {
+export default function guest({ next, to, router }) {
     if (auth.getters.authenticated) {
-        next({ name: 'dashboard' });
+        return router.push({ name: 'dashboard' });
     }
 
     return next();

@@ -1,8 +1,8 @@
 import { auth } from '@stores';
 
-export default function verified({ next, to }) {
+export default function verified({ next, to, router }) {
     if (! auth.getters.verified) {
-        next({ name: 'verification.notice' });
+        return router.push({ name: 'verification.notice' });
     }
 
     return next();
