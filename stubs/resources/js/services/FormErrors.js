@@ -23,7 +23,7 @@ export default class {
 
     clear (field) {
         if (field) {
-            Vue.delete(this.errors, field);
+            delete this.error[field];
         } else {
             this.errors = {};
             this.message = null;
