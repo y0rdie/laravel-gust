@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v1.1.0...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v1.1.1...main)
+
+## v1.1.1 - 2021-03-24
+
+### Fixed
+
+- Breeze password reset SPA compatibility ([2b64c34](https://github.com/sambindoff/laravel-gust/commit/2b64c345f503b73b58d7986e2806519b1cf4faa4))
 
 ## v1.1.0 - 2021-03-24
 
