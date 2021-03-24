@@ -25,7 +25,7 @@
 
 Laravel Gust is a backend agnostic Vue.js authentication frontend for Laravel. Gust can power the registration and authentication features of your Laravel backend when using Laravel Fortify, Breeze or UI.
 
-Gust is powered by Vue.js v2, Vue Router, Vuex and Tailwind CSS v2 on the frontend and provides scaffolding to get you started with a basic Vue.js SPA that is compatible with all Laravel backend authentication packages.
+Gust is powered by Vue.js v3, Vue Router v4, Vuex v4 and Tailwind CSS v2 on the frontend and provides scaffolding to get you started with a basic Vue.js SPA that is compatible with all Laravel backend authentication packages.
 
 Gust uses Laravel Sanctum on the backend to authenticate your SPA regardless of the stack you choose.
 

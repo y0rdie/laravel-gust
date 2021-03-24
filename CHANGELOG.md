@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v1.0.0...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v1.1.0...main)
+
+## v1.1.0 - 2021-03-24
+
+### Changed
+
+- Upgrade to Vue.js v3 including supporting libraries ([#5](https://github.com/sambindoff/laravel-gust/pull/7))
 
 ## v1.0.0 - 2021-01-05
 
