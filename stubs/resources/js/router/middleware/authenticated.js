@@ -1,8 +1,8 @@
 import { auth } from '@stores';
 
-export default function authenticated({ next, to }) {
+export default function authenticated({ next, to, router }) {
     if (! auth.getters.authenticated) {
-        next({ name: 'login' });
+        return router.push({ name: 'login' });
     }
 
     return next();

@@ -1,9 +1,6 @@
-import Vue from 'vue';
 import Vuex from 'vuex';
 
-Vue.use(Vuex);
-
-export const auth = new Vuex.Store({
+export const auth = Vuex.createStore({
     state: {
         checked: false,
         authenticated: false,

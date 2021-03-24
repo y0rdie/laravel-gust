@@ -104,7 +104,3 @@
         </div>
     </guest-layout>
 </template>
-
-<script>
-export default {}
-</script>

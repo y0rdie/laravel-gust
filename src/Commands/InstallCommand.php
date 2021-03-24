@@ -190,12 +190,12 @@ class InstallCommand extends Command
         $this->updateNodePackages(function ($packages) {
             return [
                 '@tailwindcss/forms' => '^0.2.1',
+                '@vue/compiler-sfc' => '^3.0.0',
                 'tailwindcss' => '^2.0.2',
-                'vue' => '^2.6.12',
-                'vue-loader' => '^15.9.6',
-                'vue-router' => '^3.4.9',
-                'vue-template-compiler' => '^2.6.12',
-                'vuex' => '^3.6.0',
+                'vue' => '^3.0.0',
+                'vue-loader' => '^16.1.0',
+                'vue-router' => '^4.0.0',
+                'vuex' => '^4.0.0',
             ] + Arr::except($packages, [
                 'alpinejs',
                 'autoprefixer',

@@ -1,15 +1,12 @@
-window.Vue = require('vue').default;
 window.Http = require('./services/Http').default;
 window.Form = require('./services/Form').default;
 
-import router from '@router';
+import { createApp } from 'vue';
 import App from '@layouts/App';
 import registerPlugins from '@plugins';
 
-registerPlugins(Vue);
+const app = createApp(App);
 
-new Vue({
-    el: '#app',
-    render: h => h(App),
-    router,
-});
+registerPlugins(app);
+
+app.mount('#app');

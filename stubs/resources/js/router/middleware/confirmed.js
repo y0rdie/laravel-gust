@@ -1,8 +1,8 @@
 import { auth } from '@stores';
 
-export default function confirmed({ next, to }) {
+export default function confirmed({ next, to, router }) {
     if (! auth.getters.confirmed) {
-        next({ name: 'password.confirm', query: { intended: to.name } });
+        return router.push({ name: 'password.confirm', query: { intended: to.name } });
     }
 
     return next();

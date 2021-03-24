@@ -1,11 +1,11 @@
 export default {
-    install (Vue) {
+    install (app) {
         let requireContext = require.context('@components', false, /Base\w*\.vue$/)
         requireContext.keys().forEach(filename => {
             let name = filename.replace(/^.*\//, '').replace(/\.\w+$/, '');
             let component = requireContext(filename);
 
-            Vue.component(
+            app.component(
                 component.name || name,
                 component.default || component,
             );

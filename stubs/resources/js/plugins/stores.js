@@ -1,7 +1,7 @@
 import { auth } from '@stores';
 
-function addProperty(Vue, property, value) {
-    Object.defineProperty(Vue.prototype, property, {
+function addProperty(app, property, value) {
+    Object.defineProperty(app.config.globalProperties, property, {
         get () {
             return value;
         }
@@ -9,7 +9,7 @@ function addProperty(Vue, property, value) {
 }
 
 export default {
-    install (Vue) {
-        addProperty(Vue, '$auth', auth);
+    install (app) {
+        addProperty(app, '$auth', auth);
     }
 }
