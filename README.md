@@ -114,6 +114,7 @@ You can find out more about Laravel Fortify in the [official repository](https:/
 #### What the Breeze stack does
 - Run the Breeze `vendor:publish` command.
 - Copy the `routes/auth-breeze.php` stubs to `routes/auth.php` and require it in `routes/web.php`.
+- Copy the `app/Http/Controllers/Auth/NewPasswordController.php` stub. This ensures a validation exception is thrown for a mismatching token, and also changes `route('login')` with `to('login')` due to the GET route definition no longer existing in a SPA.
 - Delete the `app/Views` directory.
 
 You can find out more about Laravel Breeze in the [official repository](https://github.com/laravel/breeze).
