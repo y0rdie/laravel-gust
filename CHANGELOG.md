@@ -2,7 +2,13 @@
 
 All notable changes to `laravel-gust` will be documented in this file.
 
-## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v1.1.1...main)
+## [Unreleased](https://github.com/sambindoff/laravel-gust/compare/v1.2.0...main)
+
+## v1.2.0 - 2022-03-26
+
+### Changed
+
+- Upgrade to L9 ([ac433ca](https://github.com/sambindoff/laravel-gust/commit/ac433ca31a66001504fdeca8be0e8b840475bfdc))
 
 ## v1.1.1 - 2021-03-24
 
