@@ -49,14 +49,14 @@ class InstallCommand extends Command
             });
 
         // Fortify Service Provider...
-        $this->replaceInFile('App\\Providers\RouteServiceProvider::class,', 'App\\Providers\RouteServiceProvider::class,'.PHP_EOL.'        App\Providers\FortifyServiceProvider::class,', config_path('app.php'));
+        $this->replaceInFile('App\\Providers\RouteServiceProvider::class,', 'App\\Providers\RouteServiceProvider::class,' . PHP_EOL . '        App\Providers\FortifyServiceProvider::class,', config_path('app.php'));
 
         // SPA Fixes...
         $this->replaceInFile("'views' => true,", "'views' => false,", config_path('fortify.php'));
         $this->replaceInFile('// Features::emailVerification(),', 'Features::emailVerification(),', config_path('fortify.php'));
         $this->replaceInFile('        Features::updateProfileInformation(),', '        // Features::updateProfileInformation(),', config_path('fortify.php'));
         $this->replaceInFile('        Features::updatePasswords(),', '        // Features::updatePasswords(),', config_path('fortify.php'));
-        $this->replaceInFile('        Features::twoFactorAuthentication(['.PHP_EOL."            'confirmPassword' => true,".PHP_EOL.'        ]),', '        // Features::twoFactorAuthentication(['.PHP_EOL."        //     'confirmPassword' => true,".PHP_EOL.'        // ]),', config_path('fortify.php'));
+        $this->replaceInFile('        Features::twoFactorAuthentication([' . PHP_EOL . "            'confirmPassword' => true," . PHP_EOL . '        ]),', '        // Features::twoFactorAuthentication([' . PHP_EOL . "        //     'confirmPassword' => true," . PHP_EOL . '        // ]),', config_path('fortify.php'));
         $this->replaceInFile('        Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);', '        // Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);', app_path('Providers/FortifyServiceProvider.php'));
         $this->replaceInFile('        Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);', '        // Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);', app_path('Providers/FortifyServiceProvider.php'));
         (new Filesystem)->delete(app_path('Actions/Fortify/UpdateUserPassword.php'));
@@ -80,10 +80,10 @@ class InstallCommand extends Command
             });
 
         // Routes...
-        copy(__DIR__.'/../../stubs/routes/auth-breeze.php', base_path('routes/auth.php'));
+        copy(__DIR__ . '/../../stubs/routes/auth-breeze.php', base_path('routes/auth.php'));
 
         // SPA Fixes...
-        copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/NewPasswordController.php', app_path('Http/Controllers/Auth/NewPasswordController.php'));
+        copy(__DIR__ . '/../../stubs/app/Http/Controllers/Auth/NewPasswordController.php', app_path('Http/Controllers/Auth/NewPasswordController.php'));
         (new Filesystem)->deleteDirectory(app_path('View'));
 
         $this->info('Breeze scaffolding installed successfully.');
@@ -107,10 +107,10 @@ class InstallCommand extends Command
             });
 
         // Routes...
-        copy(__DIR__.'/../../stubs/routes/auth-ui.php', base_path('routes/auth.php'));
+        copy(__DIR__ . '/../../stubs/routes/auth-ui.php', base_path('routes/auth.php'));
 
         // SPA Fixes...
-        copy(__DIR__.'/../../stubs/app/Http/Controllers/Auth/LoginController.php', app_path('Http/Controllers/Auth/LoginController.php'));
+        copy(__DIR__ . '/../../stubs/app/Http/Controllers/Auth/LoginController.php', app_path('Http/Controllers/Auth/LoginController.php'));
         (new Filesystem)->delete(app_path('Http/Controllers/HomeController.php'));
 
         $this->info('UI scaffolding installed successfully.');
@@ -134,21 +134,21 @@ class InstallCommand extends Command
             });
 
         // Sanctum Environment Variable...
-        file_put_contents(base_path('.env'), file_get_contents(base_path('.env')).PHP_EOL.'SANCTUM_STATEFUL_DOMAINS='.parse_url(config('app.url'))['host'].PHP_EOL);
-        file_put_contents(base_path('.env.example'), file_get_contents(base_path('.env.example')).PHP_EOL.'SANCTUM_STATEFUL_DOMAINS=localhost'.PHP_EOL);
+        file_put_contents(base_path('.env'), file_get_contents(base_path('.env')) . PHP_EOL . 'SANCTUM_STATEFUL_DOMAINS=' . parse_url(config('app.url'))['host'] . PHP_EOL);
+        file_put_contents(base_path('.env.example'), file_get_contents(base_path('.env.example')) . PHP_EOL . 'SANCTUM_STATEFUL_DOMAINS=localhost' . PHP_EOL);
 
         // Sanctum Middleware...
-        $this->replaceInFile("'throttle:api',", "\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,".PHP_EOL."            'throttle:api',", app_path('Http/Kernel.php'));
+        $this->replaceInFile("'throttle:api',", "\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class," . PHP_EOL . "            'throttle:api',", app_path('Http/Kernel.php'));
 
         // Models...
-        copy(__DIR__.'/../../stubs/app/Models/User.php', app_path('Models/User.php'));
+        copy(__DIR__ . '/../../stubs/app/Models/User.php', app_path('Models/User.php'));
 
         // Routes...
-        copy(__DIR__.'/../../stubs/routes/api.php', base_path('routes/api.php'));
-        copy(__DIR__.'/../../stubs/routes/web.php', base_path('routes/web.php'));
+        copy(__DIR__ . '/../../stubs/routes/api.php', base_path('routes/api.php'));
+        copy(__DIR__ . '/../../stubs/routes/web.php', base_path('routes/web.php'));
 
         if (in_array($this->argument('stack'), ['breeze', 'ui'])) {
-            $this->replaceInFile('*/', '*/'.PHP_EOL.PHP_EOL."require __DIR__.'/auth.php';", base_path('routes/web.php'));
+            $this->replaceInFile('*/', '*/' . PHP_EOL . PHP_EOL . "require __DIR__.'/auth.php';", base_path('routes/web.php'));
         }
 
         // Directories...
@@ -168,24 +168,24 @@ class InstallCommand extends Command
         (new Filesystem)->ensureDirectoryExists(resource_path('views'));
 
         // Tailwind Configuration...
-        copy(__DIR__.'/../../stubs/tailwind.config.js', base_path('tailwind.config.js'));
-        copy(__DIR__.'/../../stubs/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__ . '/../../stubs/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(__DIR__ . '/../../stubs/webpack.mix.js', base_path('webpack.mix.js'));
 
         // Assets...
-        copy(__DIR__.'/../../stubs/resources/css/app.css', resource_path('css/app.css'));
-        copy(__DIR__.'/../../stubs/resources/js/app.js', resource_path('js/app.js'));
+        copy(__DIR__ . '/../../stubs/resources/css/app.css', resource_path('css/app.css'));
+        copy(__DIR__ . '/../../stubs/resources/js/app.js', resource_path('js/app.js'));
 
         // Vue Components...
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/components', resource_path('js/components'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/pages', resource_path('js/pages'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/layouts', resource_path('js/layouts'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/plugins', resource_path('js/plugins'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/router', resource_path('js/router'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/services', resource_path('js/services'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources/js/stores', resource_path('js/stores'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/components', resource_path('js/components'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/pages', resource_path('js/pages'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/layouts', resource_path('js/layouts'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/plugins', resource_path('js/plugins'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/router', resource_path('js/router'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/services', resource_path('js/services'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/js/stores', resource_path('js/stores'));
 
         // Blade View...
-        copy(__DIR__.'/../../stubs/resources/views/app.blade.php', resource_path('views/app.blade.php'));
+        copy(__DIR__ . '/../../stubs/resources/views/app.blade.php', resource_path('views/app.blade.php'));
 
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
@@ -205,7 +205,7 @@ class InstallCommand extends Command
         });
 
         // SPA Fixes...
-        copy(__DIR__.'/../../stubs/app/Providers/AuthServiceProvider.php', app_path('Providers/AuthServiceProvider.php'));
+        copy(__DIR__ . '/../../stubs/app/Providers/AuthServiceProvider.php', app_path('Providers/AuthServiceProvider.php'));
         $this->replaceInFile("route('login')", "url('login')", app_path('Http/Middleware/Authenticate.php'));
 
         $this->info('Gust scaffolding installed successfully.');
@@ -258,7 +258,7 @@ class InstallCommand extends Command
 
         file_put_contents(
             base_path('package.json'),
-            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT).PHP_EOL
+            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
         );
     }
 
