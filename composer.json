@@ -17,7 +17,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Sam Bindoff",
+            "name": "Yordie",
             "email": "me@sambindoff.dev",
             "homepage": "https://sambindoff.dev",
             "role": "Developer"
@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SamBindoff\\LaravelGust\\": "src"
+            "Yordie\\LaravelGust\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SamBindoff\\LaravelGust\\Tests\\": "tests"
+            "Yordie\\LaravelGust\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,7 +56,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SamBindoff\\LaravelGust\\LaravelGustServiceProvider"
+                "Yordie\\LaravelGust\\LaravelGustServiceProvider"
             ]
         }
     },

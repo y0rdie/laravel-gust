@@ -1,5 +1,5 @@
 <?php
 
-return SamBindoff\styles([
+return Yordie\styles([
     __DIR__.'/src',
 ]);

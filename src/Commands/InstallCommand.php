@@ -1,6 +1,6 @@
 <?php
 
-namespace SamBindoff\LaravelGust\Commands;
+namespace Yordie\LaravelGust\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

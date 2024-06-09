@@ -1,6 +1,6 @@
 <?php
 
-namespace SamBindoff\LaravelGust;
+namespace Yordie\LaravelGust;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
