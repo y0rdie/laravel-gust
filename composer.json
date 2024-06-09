@@ -1,5 +1,5 @@
 {
-    "name": "sambindoff/laravel-gust",
+    "name": "y0rdie/laravel-gust",
     "description": "Laravel Gust is a backend agnostic VueJS authentication frontend for Laravel.",
     "keywords": [
         "laravel-gust",
@@ -13,7 +13,7 @@
         "authentication",
         "auth"
     ],
-    "homepage": "https://github.com/sambindoff/laravel-gust",
+    "homepage": "https://github.com/y0rdie/laravel-gust",
     "license": "MIT",
     "authors": [
         {
@@ -31,7 +31,7 @@
     "require-dev": {
         "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.5.10",
-        "sambindoff/php-styles": "dev-main",
+        "y0rdie/php-styles": "dev-main",
         "vimeo/psalm": "^4.0"
     },
     "autoload": {
